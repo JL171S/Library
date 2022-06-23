@@ -1,5 +1,5 @@
 def logInfo(message):   # function for logging info related to the process of the application
-    print(message)  # print to console
+    print(str(message))  # print to console
 
 def CSVComparison(firstCSVPath : str, firstCSVKey : str, secondCSVPath : str, secondCSVKey : str): # Read two CSV files and compare two keys for matches
     import csv
@@ -16,7 +16,7 @@ def CSVComparison(firstCSVPath : str, firstCSVKey : str, secondCSVPath : str, se
                     # logInfo(secondRow)                            # Debug log
                     if (str(firstRow[firstCSVKey]) == str(secondRow[secondCSVKey])):    # compare first CSV's row with second CSV's row for any direct matches
                         foundMatches.append(str(firstRow[firstCSVKey])) # append matches
-                        logInfo("found match")                          # print
+                        # logInfo("found match")                          # print
                         break
                     else:
                         # logInfo(str(firstRow[firstCSVKey])  + " | " + str(secondRow[secondCSVKey]))     # Debug log
@@ -24,15 +24,15 @@ def CSVComparison(firstCSVPath : str, firstCSVKey : str, secondCSVPath : str, se
                             break
                     itterationsCount += 1
     
-            logInfo("Matches found: " + str(len(foundMatches)))
-            logInfo("records itterated over: " + str(itterationsCount))
+        logInfo("Matches found: " + str(len(foundMatches)))
+        logInfo("records itterated over: " + str(itterationsCount))
  
 def main(): 
-    firstCSVToCompare = ""                  # CSV filename.csv
-    firstCSVFieldToCompareFrom = ''         # CSV header key
+    firstCSVToCompare = ""               # CSV filename.csv
+    firstCSVFieldToCompareFrom = ''      # CSV header key
 
-    secondCSVToCompare = ""                 # CSV filename.csv
-    secondSVFieldToCompareFrom = ''         # CSV header key
+    secondCSVToCompare = ""              # CSV filename.csv
+    secondSVFieldToCompareFrom = ''      # CSV header key
 
     CSVComparison(firstCSVToCompare, firstCSVFieldToCompareFrom, secondCSVToCompare, secondSVFieldToCompareFrom)
 
